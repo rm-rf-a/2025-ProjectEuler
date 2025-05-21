@@ -34,4 +34,37 @@ Problem 362
   iii번안) 학교에서 떠올렸는데 기억이안난다...
           별로 좋은 방법은 아니였던듯.....
 
+
+
+-------------------------------------------------------------------------------------------------------------------
+#from sympy.ntheory import factorint
+
+n = 101
+arr1 = [1 for i in range(n)]
+prime = []
+for i in range(2,int(n**0.5+1),1):
+    for u in range(2*i,n,i):
+        arr1[u]=0
+        
+for i in range(2,len(arr1),1):
+    if arr1[i] == 1:
+        prime.append(i)
+
+        
+
+def factorization (x) :
+    factorization_list = []
+    i=0
+    while x>1:
+        if x%prime[i]==0:
+            factorization_list.append(prime[i])
+            x = x//prime[i]
+            i=0
+        else :
+            i=i+1
+    return factorization_list
+
+print(factorization(54))
+-------------------------------------------------------------------------------------------------------------------
+소인수분해함. 이제 생각해보자~~
   
